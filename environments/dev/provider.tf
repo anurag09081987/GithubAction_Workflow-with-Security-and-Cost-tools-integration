@@ -11,6 +11,7 @@ terraform {
       container_name = "anuragcontainer"
       key = "dev.terraform.tfstate"
   }
+  required_version = ">=1.0" 
 }
 provider "azurerm" {
   features {}

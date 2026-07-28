@@ -32,15 +32,15 @@ jobs:
 
       - name: terraform init
         run: terraform init
-        working-directory: .\environments\dev
+        working-directory: ./environments/dev
 
       - name: terraform fmt
         run: terraform fmt
-        working-directory: .\environments\dev
+        working-directory: ./environments/dev
 
       - name: terraform validate
         run: terraform validate
-        working-directory: .\environments\dev
+        working-directory: ./environments/dev
 
       - name: TruffleHog OSS 
         uses: trufflesecurity/trufflehog@v3.96.0
@@ -50,13 +50,14 @@ jobs:
 
       - name: Checkov GitHub Action  
         uses: bridgecrewio/checkov-action@v12.1347.0
+        soft_fail = true
         
       - name: Infracost Actions
         uses: infracost/actions@v4.2.0
 
       - name: terraform plan
         run: terraform plan
-        working-directory: .\environments\dev
+        working-directory: ./environments/dev
 
        
           

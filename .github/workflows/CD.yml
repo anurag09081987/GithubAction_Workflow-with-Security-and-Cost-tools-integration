@@ -32,11 +32,11 @@ jobs:
 
       - name: terraform init
         run: terraform init
-        working-directory: .\environments\dev
+        working-directory: ./environments/dev
 
       - name: terraform apply
         run: terraform apply --auto-approve
-        working-directory: .\environments\dev
+        working-directory: ./environments/dev
        
           
       
