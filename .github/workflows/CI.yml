@@ -12,7 +12,7 @@ permissions:
 
 
 jobs:
-  terraform_workflow:
+  test:
     name: scan
     runs-on: ubuntu-latest
 
@@ -32,27 +32,34 @@ jobs:
 
       - name: terraform init
         run: terraform init
+        working-directory: ./environments/dev
 
       - name: terraform fmt
         run: terraform fmt
+        working-directory: ./environments/dev
 
       - name: terraform validate
         run: terraform validate
+       
 
       - name: TruffleHog OSS 
         uses: trufflesecurity/trufflehog@v3.96.0
+      
 
       - name: Setup TFLint
         uses: terraform-linters/setup-tflint@v6.3.0
-
+       
       - name: Checkov GitHub Action  
         uses: bridgecrewio/checkov-action@v12.1347.0
         
       - name: Infracost Actions
         uses: infracost/actions@v4.2.0
 
+ 
+
       - name: terraform plan
         run: terraform plan
+        working-directory: ./environments/dev
        
           
       
