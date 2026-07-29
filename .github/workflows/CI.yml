@@ -51,7 +51,8 @@ jobs:
        
       - name: Checkov GitHub Action  
         uses: bridgecrewio/checkov-action@v12.1347.0
-        soft-fail: true
+        with:
+          soft_fail: true
         
       - name: Infracost Actions
         uses: infracost/actions@v4.2.0
